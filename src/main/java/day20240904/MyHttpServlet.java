@@ -22,6 +22,6 @@ public class MyHttpServlet extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
-        System.out.println("MyHttpServlet.doPost");
+        System.out.println("MyHttpServlet.doPost:username=" + username + ",password=" + password);
     }
 }
