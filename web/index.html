@@ -2,9 +2,122 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>web2</title>
+
+    <style>
+        body {
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .unit {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 50%;
+            border: 1px solid #00aaff;
+            border-radius: 15px;
+            background-color: #e6f7ff;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .unit:hover {
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+
+        h2, h3 {
+            color: #0077cc;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0077cc;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #005fa3;
+        }
+
+        hr {
+            border: 1px solid #ddd;
+            width: 80%;
+            margin: 40px auto;
+        }
+    </style>
+
 </head>
 <body>
+<h2>Web2.0</h2>
+<div class="unit">
+    <h3>day20240902</h3>
+    <ul>
+        <li>
+            <a href="/web2_war/my-first-servlet" target="_blank">MyFirstServlet</a>   - service 方法输出的内容
+        </li>
+        <li>
+            <a href="/web2_war/hello-servlet" target="_blank">HelloServlet</a>
+        </li>
+    </ul>
+</div>
 
+<hr>
+
+<div class="unit">
+    <h3>day20240904</h3>
+    <ul>
+        <li>
+            <a href="/web2_war/life-cycle" target="_blank">LifeCycleDemoServlet</a>   - Servlet 生命周期
+        </li>
+        <li>
+            <a href="/web2_war/day20240904/login.html" target="_blank">Login界面</a>   - 美化的用户登录界面
+        </li>
+        <li>
+            <a href="/web2_war/login" target="_blank">MyHttpServlet</a>   - 用户点击登录，Servlet根据数据库真实判断是否登录成功
+        </li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="unit">
+    <h3>day20240908</h3>
+    <ul>
+        <li>
+            <a href="/web2_war/browser_language" target="_blank">LanguageServlet</a>   - 根据浏览器设置的首选语言自动决定显示什么内容
+        </li>
+        <li>
+            <a href="/web2_war/custom_language?lan=zh-CN" target="_blank">CustomLangServlet</a>   - 用户自己通过携带 lan 参数明确指定需要显示什么内容 - lan=zh-CN - 中文
+        </li>
+        <li>
+            <a href="/web2_war/custom_language?lan=zh-hk" target="_blank">CustomLangServlet</a>   - 用户自己通过携带 lan 参数明确指定需要显示什么内容 - lan=zh-hk - 繁体中文
+        </li>
+        <li>
+            <a href="/web2_war/custom_language?lan=en" target="_blank">CustomLangServlet</a>   - 用户自己通过携带 lan 参数明确指定需要显示什么内容 - lan=en - 英文
+        </li>
+        <li>
+            <a href="/web2_war/request_demo1_servlet?page=1&lang=en" target="_blank">RequestDemo1Servlet</a>   - 从 HTTP 协议的[请求行]部分获取各种常见信息
+        </li>
+    </ul>
+</div>
+<hr>
 </body>
 </html>

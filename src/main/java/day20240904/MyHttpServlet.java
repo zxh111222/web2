@@ -29,16 +29,15 @@ public class MyHttpServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html;charset=UTF-8");
+        PrintWriter writer = resp.getWriter();
+
         String username = req.getParameter("username");
         String password = req.getParameter("password");
 
         System.out.println("MyHttpServlet.doPost:username=" + username + ",password=" + password);
 
         boolean isValUser = valUser(username,password);
-
-        resp.setContentType("text/html;charset=UTF-8");
-
-        PrintWriter writer = resp.getWriter();
         if (isValUser) {
             writer.println("<h1>登录成功！</h1>");
         } else {
@@ -60,7 +59,7 @@ public class MyHttpServlet extends HttpServlet {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, username);
             statement.setString(2, password);
-            System.out.println("正在验证用户名：" + username + " 和密码：" + password);
+            System.out.println("正在验证用户名：" + username);
 
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {

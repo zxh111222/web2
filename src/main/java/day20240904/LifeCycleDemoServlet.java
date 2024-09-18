@@ -22,22 +22,23 @@ public class LifeCycleDemoServlet implements Servlet {
 
     @Override
     public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
-        System.out.println("servletRequest class: " + servletRequest.getClass());
-        System.out.println("servletResponse class: " + servletResponse.getClass());
+        servletResponse.setContentType("text/html;charset=UTF-8");
+        servletResponse.getWriter().println("servletRequest class: " + servletRequest.getClass());
+        servletResponse.getWriter().println("servletResponse class: " + servletResponse.getClass());
 
         if (servletRequest instanceof HttpServletRequest) {
-            System.out.println("servletRequest 是 HttpServletRequest 的一个实例");
+            servletResponse.getWriter().println("servletRequest 是 HttpServletRequest 的一个实例");
         } else {
             System.out.println("不是");
         }
 
         if (servletResponse instanceof HttpServletResponse) {
-            System.out.println("servletResponse 是 HttpServletResponse  的一个实例");
+            servletResponse.getWriter().println("servletResponse 是 HttpServletResponse  的一个实例");
         } else {
             System.out.println("不是");
         }
 
-        servletResponse.getWriter().write("LifeCycleDemoServlet.service");;
+        servletResponse.getWriter().println("LifeCycleDemoServlet.service");;
     }
 
     @Override
