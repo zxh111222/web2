@@ -15,7 +15,7 @@ import java.io.IOException;
 public class ResponseServlet5 extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String path = this.getServletContext().getRealPath("/day240918/test.png");
+        String path = this.getServletContext().getRealPath("/day20240918/test.png");
         FileInputStream fis = new FileInputStream(path);
 
         ServletOutputStream sos = response.getOutputStream();

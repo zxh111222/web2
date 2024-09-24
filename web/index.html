@@ -33,7 +33,7 @@
             transform: translateY(-5px);
         }
 
-        h2, h3 {
+        h2, h3, h4 {
             color: #0077cc;
         }
 
@@ -123,15 +123,77 @@
 
 <div class="unit">
     <h3>day20240918</h3>
+    <h4>request</h4>
     <ul>
         <li>
-            <a href="/web2_war/RequestServlet1" target="_blank">111</a>
+            <a href="/web2_war/RequestServlet1" target="_blank">RequestServlet1</a> - 你好，xxx （xxx的具体值通过 request.getParameter("name") 动态获取）
         </li>
         <li>
-            <a href="/web2_war/RequestServlet2" target="_blank">222</a>
+            <a href="/web2_war/RequestServlet2" target="_blank">RequestServlet2</a> - 直接打印出 request 和 response 到底是由谁实现的
         </li>
         <li>
-            <a href="/web2_war/RequestServlet3" target="_blank">333</a>
+            <a href="/web2_war/RequestServlet3" target="_blank">RequestServlet3</a>
+            <p>输出：getMethod、getContextPath、getRequestURL、getRequestURI、getQueryString、getHeader("user-agent") 的具体值</p>
+            <p>提醒：可以用这句获取跟操作系统无关的换行符 System.lineSeparator()</p>
+        </li>
+        <li>
+            <a href="/web2_war/RequestServlet4?username=用户名_GET&password=secret" target="_blank">RequestServlet4</a>
+            <p>验证控制台输出</p>
+            <p>在控制台输出用户传递过来的 username 和 password 的值</p>
+            <p>request.getParameter("username")</p>
+            <p>request.getParameter("password")</p>
+        </li>
+        <li>
+            <a href="/web2_war/RequestServlet4_1?username=用户名_GET&password=secret" target="_blank">RequestServlet4_1</a>
+            <p>跟上一个效果一样，但是可以用另一个 url (/RequestServlet4_1) 访问同一个 Servlet</p>
+        </li>
+        <li>
+            <a href="/web2_war/RequestServlet5" target="_blank">RequestServlet5</a>
+            <p>验证控制台输出</p>
+            <p>功能：访问 RequestServlet5，实际上，RequestServlet5 的内部，调用了 RequestServlet6</p>
+            <p>同时在 RequestServlet5 中可以额外传递数据给 RequestServlet6（request.setAttribute("key", "value")）</p>
+            <p>RequestServlet6 可以通过 request.getAttribute("key") 获取</p>
+        </li>
+        <li>
+            <a href="/web2_war/RequestServlet6" target="_blank">RequestServlet6</a>
+            <p>验证控制台输出</p>
+            <p>观察：直接访问 RequestServlet6 vs 通过 RequestServlet5 访问的差异</p>
+            <p>同时在 RequestServlet5 中可以额外传递数据给 RequestServlet6（request.setAttribute("key", "value")）</p>
+            <p>查看控制台的输出，此时在 RequestServlet6 中 request.getAttribute("attr1") 返回为 null</p>
+        </li>
+    </ul>
+    <h4>response</h4>
+    <ul>
+        <li>
+            <a href="/web2_war/ResponseServlet1" target="_blank">ResponseServlet1</a> - 跳转 - setStatus(...) + setHeader("Location", "...")
+            <p>观察跟之前讲的「转发」的差异 - request.getRequestDispatcher("...").forward(request, response)</p>
+        </li>
+        <li>
+            <a href="/web2_war/ResponseServlet2" target="_blank">ResponseServlet2</a> - 复习 response.getWriter().write(...)
+        </li>
+        <li>
+            <a href="/web2_war/ResponseServlet3" target="_blank">ResponseServlet3</a> - write img
+            <p>除了往客户端写文本，也可以直接写图片等多媒体资源</p>
+        </li>
+        <li>
+            <a href="/web2_war/ResponseServlet4" target="_blank">ResponseServlet4</a> - write img - IOUtils
+            <p>引入第三方库，更方便完成 IO 相关操作</p>
+        </li>
+        <li>
+            <a href="/web2_war/ResponseServlet5" target="_blank">ResponseServlet5</a> - write img - Content-Disposition:attachment
+            <p>服务端：设置符合协议的特定请求头；客户端：按照协议解析特定的请求头，并做相应处理</p>
+        </li>
+        <li>
+            <a href="/web2_war/ResponseServlet6" target="_blank">ResponseServlet6</a> - write img - Content-Disposition:attachment;filename=custom-name.png
+            <p>在前一个功能的基础上，让客户端按照指定的名称下载</p>
+        </li>
+        <li>
+            <a href="/web2_war/ResponseServlet7" target="_blank">ResponseServlet7</a> - redirect - Cache-Control: no-cache
+            <p>
+                这个 Servlet 暂时可以先忽略，后续遇到再来回顾<br>
+                如果后续遇到修改了跳转链接，发现短期内没生效，可能是客户端缓存了之前的地址<br>
+                可以设置请求头 Cache-Control: no-cache 明确告诉客户端不要缓存
+            </p>
         </li>
     </ul>
 </div>
