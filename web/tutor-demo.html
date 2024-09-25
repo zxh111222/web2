@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>新手指引</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
 </head>
 <body>
 <h1>新手指引</h1>
@@ -60,6 +60,13 @@
       { element: '#title4', popover: { title: '还是饿', description: '吃完还是很饿，还想吃', side: "bottom", align: 'start' }},
       { popover: { title: 'Happy Coding', description: '吃吃，整天就想着吃？' } }
     ],
+    // onDestroyStarted is called when the user tries to exit the tour
+    onDestroyStarted: () => {
+      if (!driverObj.hasNextStep() || confirm("Are you sure?")) {
+        driverObj.destroy();
+      }
+    },
+
   });
 
   driverObj.drive();
